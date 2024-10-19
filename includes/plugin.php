@@ -58,7 +58,7 @@ class Plugin {
      * @since 1.0.0
      * @access public
      *
-     * @param Widgets_Manager $widgets_manager Elementor widgets manager.
+     * @param /Widgets_Manager $widgets_manager Elementor widgets manager.
      */
     public function register_widgets( $widgets_manager ) {
         // Its is now safe to include Widgets files
