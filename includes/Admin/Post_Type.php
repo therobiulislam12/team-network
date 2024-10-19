@@ -1,6 +1,13 @@
 <?php
 
 class Post_Type {
+
+    /**
+     * Register custom post type
+     *
+     * @return void
+     * @since 1.0.0
+     */
     public function team_network_post_type() {
 
         $labels = array(
@@ -36,7 +43,7 @@ class Post_Type {
             'label'               => __( 'Team Network', 'team-network' ),
             'description'         => __( 'Manage your team member with custom post type', 'team-network' ),
             'labels'              => $labels,
-            'supports'            => array( 'title', 'editor', 'thumbnail', 'custom-fields' ),
+            'supports'            => array( 'title', 'thumbnail', 'excerpt' ),
             'hierarchical'        => false,
             'public'              => true,
             'show_ui'             => true,
@@ -47,12 +54,51 @@ class Post_Type {
             'can_export'          => true,
             'has_archive'         => true,
             'exclude_from_search' => false,
+            'taxonomies'          => array( 'department' ),
+            'rewrite'             => array( 'slug' => 'team' ),
             'publicly_queryable'  => true,
-            'capability_type'     => 'page',
+            'capability_type'     => 'post',
             'menu_icon'           => 'dashicons-groups',
             'show_in_rest'        => true,
             'rest_base'           => 'team-network',
         );
         register_post_type( 'teamnetwork', $args );
+    }
+
+    public function tn_department_category() {
+
+        $labels = array(
+            'name'                       => _x( 'Team Department', 'Taxonomy General Name', 'team-network' ),
+            'singular_name'              => _x( 'Team Department', 'Taxonomy Singular Name', 'team-network' ),
+            'menu_name'                  => __( 'Team Department', 'team-network' ),
+            'all_items'                  => __( 'All Department', 'team-network' ),
+            'parent_item'                => __( 'Parent Department', 'team-network' ),
+            'parent_item_colon'          => __( 'Parent Department:', 'team-network' ),
+            'new_item_name'              => __( 'New Department Name', 'team-network' ),
+            'add_new_item'               => __( 'Add New Department', 'team-network' ),
+            'edit_item'                  => __( 'Edit Department', 'team-network' ),
+            'update_item'                => __( 'Update Department', 'team-network' ),
+            'view_item'                  => __( 'View Department', 'team-network' ),
+            'separate_items_with_commas' => __( 'Separate department with commas', 'team-network' ),
+            'add_or_remove_items'        => __( 'Add or remove department', 'team-network' ),
+            'choose_from_most_used'      => __( 'Choose from the most used', 'team-network' ),
+            'popular_items'              => __( 'Popular Department', 'team-network' ),
+            'search_items'               => __( 'Search Department', 'team-network' ),
+            'not_found'                  => __( 'Department Not Found', 'team-network' ),
+            'no_terms'                   => __( 'No Department', 'team-network' ),
+            'items_list'                 => __( 'Department list', 'team-network' ),
+            'items_list_navigation'      => __( 'Department list navigation', 'team-network' ),
+        );
+        $args = array(
+            'labels'            => $labels,
+            'hierarchical'      => true,
+            'public'            => false,
+            'show_ui'           => true,
+            'show_admin_column' => true,
+            'show_in_nav_menus' => true,
+            'show_tagcloud'     => false,
+        );
+        register_taxonomy( 'department', array( 'teamnetwork' ), $args );
+
     }
 }

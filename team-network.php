@@ -79,7 +79,13 @@ final class Team_Network {
 
         // create Post Type instance 
         $post_type = new Post_Type();
+
+        // post type method
         $post_type->team_network_post_type();
+
+        // department category
+        $post_type->tn_department_category();
+
 
         
         // check if admin, load class
