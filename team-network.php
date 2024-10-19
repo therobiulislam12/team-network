@@ -164,12 +164,12 @@ final class Team_Network {
 
         $message = sprintf(
             /* translators: 1: Plugin name 2: Elementor */
-            esc_html__( '"%1$s" requires "%2$s" to be installed and activated.', 'team-network' ),
+            esc_html__( '"%1$s" requires "%2$s" to be installed and activated if you want elementor widgets.', 'team-network' ),
             '<strong>' . esc_html__( 'Team Network', 'team-network' ) . '</strong>',
             '<strong>' . esc_html__( 'Elementor', 'team-network' ) . '</strong>'
         );
 
-        printf( '<div class="notice notice-error is-dismissible"><p>%1$s</p></div>', $message );
+        printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
     }
 
     /**
