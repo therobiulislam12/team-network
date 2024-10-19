@@ -67,6 +67,17 @@ final class Team_Network {
 
         // Init Plugin
         add_action( 'plugins_loaded', array( $this, 'initialize_plugin' ) );
+
+        // add post type
+        add_action( 'init', array( $this, 'tn_init' ) );
+    }
+
+    public function tn_init() {
+
+        // check if admin, load class
+        if ( is_admin() ) {
+            $admin = require_once __DIR__ . '/includes/Admin.php';
+        }
     }
 
     /**
