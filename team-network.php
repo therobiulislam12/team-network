@@ -91,6 +91,7 @@ final class Team_Network {
         // check if admin, load class
         if ( is_admin() ) {
             $admin = require_once __DIR__ . '/includes/Admin.php';
+            $admin = new Admin();
         }
     }
 
