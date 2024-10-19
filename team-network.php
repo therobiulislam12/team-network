@@ -65,11 +65,15 @@ final class Team_Network {
      */
     public function __construct() {
 
+        // call constant
+        $this->define_constant();
+
         // Init Plugin
         add_action( 'plugins_loaded', array( $this, 'initialize_plugin' ) );
 
         // add post type
         add_action( 'init', array( $this, 'tn_init' ) );
+        
     }
 
     public function tn_init() {
@@ -93,6 +97,19 @@ final class Team_Network {
             $admin = require_once __DIR__ . '/includes/Admin.php';
             $admin = new Admin();
         }
+    }
+
+    /**
+     * Declare all constant here
+     * 
+     * 
+     * @since 1.0.0
+     */
+    public function define_constant(){
+        define('TN_VERSION', self::VERSION);
+        define('TN_FILE', __FILE__);
+        define('TN_DIR_PATH', plugin_dir_url(TN_FILE));
+        define('TN_FILE_ASSETS', TN_DIR_PATH . 'assets/');
     }
 
     /**

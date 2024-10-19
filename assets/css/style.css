@@ -1,0 +1,55 @@
+/* 
+=============================
+    menu style start
+=============================
+*/
+.wp-has-current-submenu a.menu-icon-teamnetwork{
+    background: #A02334 !important;
+}
+.tn-plugin-premium{
+    color: #A02334;
+    font-weight: 800;
+}
+.tn-plugin-premium:hover{
+    color: #c70a23;
+}
+/* 
+=============================
+   menu style end
+=============================
+*/
+
+/* 
+=============================
+    Meta Field Style start
+=============================
+*/
+
+.tn-member-extra-details,
+.tn-member-social-media {
+  padding: 5px;
+}
+
+.tn-label {
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.tn-input input {
+  width: 100%;
+  padding: 4px 10px;
+}
+
+.tn-field-wrapper {
+  padding: 16px 0px;
+}
+.tn-field-wrapper:not(:last-child) {
+  border-bottom: 1px solid #eee;
+}
+
+/* 
+=============================
+    Meta Field Style end
+=============================
+*/

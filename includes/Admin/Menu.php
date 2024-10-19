@@ -16,6 +16,12 @@ class Menu {
 
         // Social media data save
         add_action( 'save_post', array( $this, 'save_tn_member_social_media_meta_box' ) );
+
+        // enqueue scripts
+        add_action( 'admin_enqueue_scripts', array( $this, 'tn_meta_box_scripts' ) );
+
+        // plugin page link setup land on plugin menu
+        add_action( 'plugin_action_links_' . plugin_basename( TN_FILE ), array( $this, 'tn_plugin_menu_option' ) );
     }
 
     /**
@@ -30,7 +36,7 @@ class Menu {
         if ( 'teamnetwork' === $post_type ) {
             add_meta_box(
                 'tn-user-extra-information',
-                __( 'Extra Information', 'team-network' ),
+                __( 'Member Extra Information', 'team-network' ),
                 array( $this, 'tn_user_extra_information' ),
                 'teamnetwork',
                 'advanced',
@@ -67,18 +73,36 @@ class Menu {
         $phone = get_post_meta( $post->ID, '_tn_member_phone', true );
         $location = get_post_meta( $post->ID, '_tn_member_location', true );
 
-        // Role field
-        echo '<label for="tn_member_role">' . __( 'Role:', 'team-network' ) . '</label>';
-        echo '<input type="text" id="tn_member_role" name="tn_member_role" value="' . esc_attr( $role ) . '" /><br><br>';
+        ?>
+        <div class="tn-member-extra-details">
+            <div class="tn-field-wrapper">
+                <div class="tn-label">
+                    <label for="tn_member_role"><?php _e( 'Role / Designation:', 'team-network' );?></label>
+                </div>
+                <div class="tn-input">
+                    <input type="text" id="tn_member_role" name="tn_member_role" value="<?php echo esc_attr( $role ); ?>" />
+                </div>
+            </div>
+            <div class="tn-field-wrapper">
+                <div class="tn-label">
+                <label for="tn_member_phone"><?php _e( 'Phone Number:', 'team-network' );?></label>
+                </div>
+                <div class="tn-input">
+                <input type="text" id="tn_member_phone" name="tn_member_phone" value="<?php echo esc_attr( $phone ); ?>" />
+                </div>
+            </div>
+            <div class="tn-field-wrapper">
+                <div class="tn-label">
+                <label for="tn_member_location"><?php _e( 'Location:', 'team-network' );?></label>
+                </div>
+                <div class="tn-input">
+                <input type="text" id="tn_member_location" name="tn_member_location" value="<?php echo esc_attr( $location ); ?>" />
+                </div>
+            </div>
+        </div>
 
-        // Phone number field
-        echo '<label for="tn_member_phone">' . __( 'Phone Number:', 'team-network' ) . '</label>';
-        echo '<input type="text" id="tn_member_phone" name="tn_member_phone" value="' . esc_attr( $phone ) . '" /><br><br>';
-
-        // Location field
-        echo '<label for="tn_member_location">' . __( 'Location:', 'team-network' ) . '</label>';
-        echo '<input type="text" id="tn_member_location" name="tn_member_location" value="' . esc_attr( $location ) . '" />';
-    }
+        <?php
+}
 
     /**
      * Render the Social Media meta box fields
@@ -100,26 +124,58 @@ class Menu {
         $wordpress = get_post_meta( $post->ID, '_tn_member_wordpress', true );
         $twitter = get_post_meta( $post->ID, '_tn_member_twitter', true );
 
-        // LinkedIn field
-        echo '<label for="tn_member_linkedin">' . __( 'LinkedIn URL:', 'team-network' ) . '</label>';
-        echo '<input type="url" id="tn_member_linkedin" name="tn_member_linkedin" value="' . esc_attr( $linkedin ) . '" size="40" /><br><br>';
+        ?>
 
-        // Facebook field
-        echo '<label for="tn_member_facebook">' . __( 'Facebook URL:', 'team-network' ) . '</label>';
-        echo '<input type="url" id="tn_member_facebook" name="tn_member_facebook" value="' . esc_attr( $facebook ) . '" size="40" /><br><br>';
+        <div class="tn-member-social-media">
+            <div class="tn-field-wrapper">
+                <div class="tn-label">
+                    <label for="tn_member_linkedin"><?php _e( 'LinkedIn URL:', 'team-network' );?></label>
+                </div>
+                <div class="tn-input">
+                    <input type="url" id="tn_member_linkedin" name="tn_member_linkedin" value="<?php echo esc_attr( $linkedin ); ?>" size="40" />
+                </div>
+            </div>
 
-        // GitHub field
-        echo '<label for="tn_member_github">' . __( 'GitHub URL:', 'team-network' ) . '</label>';
-        echo '<input type="url" id="tn_member_github" name="tn_member_github" value="' . esc_attr( $github ) . '" size="40" /><br><br>';
+            <div class="tn-field-wrapper">
+                <div class="tn-label">
+                    <label for="tn_member_facebook"><?php _e( 'Facebook URL:', 'team-network' );?></label>
+                </div>
+                <div class="tn-input">
+                    <input type="url" id="tn_member_facebook" name="tn_member_facebook" value="<?php echo esc_attr( $facebook ); ?>" size="40" />
+                </div>
+            </div>
 
-        // WordPress.org field
-        echo '<label for="tn_member_wordpress">' . __( 'WordPress.org Profile URL:', 'team-network' ) . '</label>';
-        echo '<input type="url" id="tn_member_wordpress" name="tn_member_wordpress" value="' . esc_attr( $wordpress ) . '" size="40" /><br><br>';
+            <div class="tn-field-wrapper">
+                <div class="tn-label">
+                    <label for="tn_member_github"><?php _e( 'GitHub URL:', 'team-network' );?></label>
+                </div>
+                <div class="tn-input">
+                    <input type="url" id="tn_member_github" name="tn_member_github" value="<?php echo esc_attr( $github ); ?>" size="40" />
+                </div>
+            </div>
 
-        // Twitter field
-        echo '<label for="tn_member_twitter">' . __( 'Twitter URL:', 'team-network' ) . '</label>';
-        echo '<input type="url" id="tn_member_twitter" name="tn_member_twitter" value="' . esc_attr( $twitter ) . '" size="40" />';
-    }
+            <div class="tn-field-wrapper">
+                <div class="tn-label">
+                    <label for="tn_member_wordpress"><?php _e( 'WordPress.org Profile URL:', 'team-network' );?></label>
+                </div>
+                <div class="tn-input">
+                    <input type="url" id="tn_member_wordpress" name="tn_member_wordpress" value="<?php echo esc_attr( $wordpress ); ?>" size="40" />
+                </div>
+            </div>
+
+            <div class="tn-field-wrapper">
+                <div class="tn-label">
+                    <label for="tn_member_twitter"><?php _e( 'Twitter URL:', 'team-network' );?></label>
+                </div>
+                <div class="tn-input">
+                    <input type="url" id="tn_member_twitter" name="tn_member_twitter" value="<?php echo esc_attr( $twitter ); ?>" size="40" />
+                </div>
+            </div>
+        </div>
+
+
+        <?php
+}
 
     /**
      * Save the Extra Information meta box data
@@ -214,5 +270,39 @@ class Menu {
         if ( isset( $_POST['tn_member_twitter'] ) ) {
             update_post_meta( $post_id, '_tn_member_twitter', esc_url_raw( $_POST['tn_member_twitter'] ) );
         }
+    }
+
+    /**
+     * Add script and style
+     *
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
+    public function tn_meta_box_scripts() {
+        wp_register_style( 'tn-main-style', TN_FILE_ASSETS . 'css/style.css' );
+
+        wp_enqueue_style( 'tn-main-style' );
+    }
+
+    /**
+     * Adds a "Settings" link to the plugin's action links on the plugins page.
+     *
+     * @param array $links The current plugin action links.
+     * @return array Modified plugin action links with the "Settings" link added.
+     *
+     * @since 1.0.0
+     */
+    public function tn_plugin_menu_option( $links ) {
+        $settings_links = array(
+            sprintf( '<a href="%1$s">%2$s</a>', admin_url( 'edit.php?post_type=teamnetwork' ), __( 'Settings', 'team-network' ) )
+        );
+        $links = array_merge( $settings_links, $links );
+        $settings_links = array(
+            sprintf( '<a href="%1$s" target="_blank" class="tn-plugin-premium">%2$s</a>', 'https://robiul.net/about', __( 'Premium', 'team-network' ) ),
+        );
+        $links = array_merge( $links, $settings_links );
+        return $links;
     }
 }
