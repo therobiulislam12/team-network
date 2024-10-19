@@ -65,6 +65,13 @@ class Post_Type {
         register_post_type( 'teamnetwork', $args );
     }
 
+    /**
+     * Add here department category for teamnetwork post type
+     * 
+     * 
+     * @return void
+     * @since 1.0.0
+     */
     public function tn_department_category() {
 
         $labels = array(
