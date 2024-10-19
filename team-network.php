@@ -74,6 +74,14 @@ final class Team_Network {
 
     public function tn_init() {
 
+        // require post type
+        require_once __DIR__ . '/includes/Admin/Post_Type.php';
+
+        // create Post Type instance 
+        $post_type = new Post_Type();
+        $post_type->team_network_post_type();
+
+        
         // check if admin, load class
         if ( is_admin() ) {
             $admin = require_once __DIR__ . '/includes/Admin.php';

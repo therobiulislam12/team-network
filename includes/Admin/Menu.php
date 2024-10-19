@@ -6,4 +6,8 @@
  * 
  * @since 1.0.0
  */
-class Menu{}
+class Menu{
+    public function __construct(){
+        
+    }
+}
