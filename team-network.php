@@ -73,7 +73,7 @@ final class Team_Network {
 
         // add post type
         add_action( 'init', array( $this, 'tn_init' ) );
-        
+
     }
 
     public function tn_init() {
@@ -81,7 +81,7 @@ final class Team_Network {
         // require post type
         require_once __DIR__ . '/includes/Admin/Post_Type.php';
 
-        // create Post Type instance 
+        // create Post Type instance
         $post_type = new Post_Type();
 
         // post type method
@@ -90,26 +90,64 @@ final class Team_Network {
         // department category
         $post_type->tn_department_category();
 
+        // create single page
+        add_filter( 'template_include', array( $this, 'teamnetwork_single_template' ) );
 
-        
+        // single teamnetwork style
+        add_action('wp_enqueue_scripts', array($this, 'enqueue_teamnetwork_styles'));
+
         // check if admin, load class
         if ( is_admin() ) {
             $admin = require_once __DIR__ . '/includes/Admin.php';
             $admin = new Admin();
+        } 
+    }
+
+    /**
+     * Team network front-end style
+     * 
+     * @return void
+     */
+    public function enqueue_teamnetwork_styles() {
+        if (is_singular('teamnetwork')) {
+            // Enqueue the CSS file from the plugin
+            wp_enqueue_style('teamnetwork-style', plugin_dir_url(__FILE__) . 'assets/css/single-member.css');
         }
     }
 
     /**
+     * Single Team Member page
+     * 
+     * @param mixed $template
+     * @return mixed
+     */
+    public function teamnetwork_single_template( $template ) {
+        // Check if it's a single post of custom post type 'teamnetwork'
+        if ( is_singular( 'teamnetwork' ) ) {
+            // Look for the custom template in the plugin's folder
+            $plugin_template = plugin_dir_path( __FILE__ ) . 'templates/single-teamnetwork.php';
+
+            // If the template exists, return it
+            if ( file_exists( $plugin_template ) ) {
+                return $plugin_template;
+            }
+        }
+
+        // Return the default template if no custom template is found
+        return $template;
+    }
+
+    /**
      * Declare all constant here
-     * 
-     * 
+     *
+     *
      * @since 1.0.0
      */
-    public function define_constant(){
-        define('TN_VERSION', self::VERSION);
-        define('TN_FILE', __FILE__);
-        define('TN_DIR_PATH', plugin_dir_url(TN_FILE));
-        define('TN_FILE_ASSETS', TN_DIR_PATH . 'assets/');
+    public function define_constant() {
+        define( 'TN_VERSION', self::VERSION );
+        define( 'TN_FILE', __FILE__ );
+        define( 'TN_DIR_PATH', plugin_dir_url( TN_FILE ) );
+        define( 'TN_FILE_ASSETS', TN_DIR_PATH . 'assets/' );
     }
 
     /**

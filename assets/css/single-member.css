@@ -1,0 +1,20 @@
+section.tn-single-member-view {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  padding: 80px 0px;
+}
+
+.team-member-profile {
+  width: 500px;
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+}
+
+.team-member-profile img {
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
