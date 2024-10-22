@@ -14,7 +14,14 @@ section.tn-single-member-view {
   border-radius: 20px;
 }
 
-.team-member-profile img {
+.team-member-profile .team-member-headshot img {
   border-radius: 10px;
   margin-bottom: 20px;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.team-member-profile h1.team-member-name {
+  font-size: 44px;
+  line-height: 44px;
 }
