@@ -104,9 +104,22 @@ class Single_Member extends Widget_Base {
         $settings = $this->get_settings_for_display();
 
 		$member_id = $settings['team_member_id'];
-		$member = get_post($member_id);
+		$member = 'teamnetwork' == get_post_type($member_id) ? get_post($member_id) : '';
 
-		$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($member_id)); 
+		$thumb = null;
+		$member_name = null;
+		$member_excerpt = null;
+
+		if(!empty($member)){
+			$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($member_id), 'large'); 
+			$thumb = $thumb[0];
+			$member_name = $member->post_title;
+			$member_excerpt = $member->post_excerpt;
+		}
+
+		if(empty($thumb)){
+			$thumb =  \Elementor\Utils::get_placeholder_image_src();
+		}
 
 		$live = get_post_meta( $member_id, '_tn_member_location', true );
         $phone = get_post_meta( $member_id, '_tn_member_phone', true );
@@ -114,16 +127,44 @@ class Single_Member extends Widget_Base {
 
         ?>
 
+			<style>
+				section.tn-single-member-view {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				}
+
+				.team-member-profile {
+				width: 500px;
+				background: white;
+				padding: 30px;
+				border-radius: 20px;
+				box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+				}
+
+				.team-member-profile .team-member-headshot img {
+				border-radius: 10px;
+				margin-bottom: 20px;
+				width: 100% !important;
+				height: 100% !important;
+				}
+
+				.team-member-profile h1.team-member-name {
+				font-size: 44px;
+				line-height: 44px;
+				}
+			</style>
+
 			<section class="tn-single-member-view">
 				<div class="team-member-profile">
 					<div class="team-member-headshot">
-						<img src="<?php echo esc_url($thumb[0]) ?>" alt="<?php echo esc_html__($member->post_title, 'team-network'); ?>">
+						<img src="<?php echo esc_url($thumb) ?>" alt="<?php echo esc_html__($member_name, 'team-network'); ?>">
 					</div>
 						<h1 class="team-member-name">
-							<?php echo esc_html__($member->post_title, 'team-network'); ?>
+							<?php echo esc_html__($member_name, 'team-network'); ?>
 						</h1>
 					<div class="team-member-content">
-						<p><?php echo esc_html__($member->post_excerpt, 'team-network'); ?></p>
+						<p><?php echo esc_html__($member_excerpt, 'team-network'); ?></p>
 						<p>
 							<strong>Job Title: </strong> <?php echo esc_html( $role );?>
 						</p>
