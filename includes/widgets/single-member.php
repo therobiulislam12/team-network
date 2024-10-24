@@ -106,6 +106,8 @@ class Single_Member extends Widget_Base {
 		$member_id = $settings['team_member_id'];
 		$member = get_post($member_id);
 
+		$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($member_id)); 
+
 		$live = get_post_meta( $member_id, '_tn_member_location', true );
         $phone = get_post_meta( $member_id, '_tn_member_phone', true );
         $role = get_post_meta( $member_id, '_tn_member_role', true );
@@ -115,7 +117,7 @@ class Single_Member extends Widget_Base {
 			<section class="tn-single-member-view">
 				<div class="team-member-profile">
 					<div class="team-member-headshot">
-						<img fetchpriority="high" width="800" height="800" src="http://elementorplugin.com/wp-content/uploads/2024/10/1724535635540.jpeg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" decoding="async" srcset="http://elementorplugin.com/wp-content/uploads/2024/10/1724535635540.jpeg 800w, http://elementorplugin.com/wp-content/uploads/2024/10/1724535635540-300x300.jpeg 300w, http://elementorplugin.com/wp-content/uploads/2024/10/1724535635540-150x150.jpeg 150w, http://elementorplugin.com/wp-content/uploads/2024/10/1724535635540-768x768.jpeg 768w" sizes="(max-width: 800px) 100vw, 800px">
+						<img src="<?php echo esc_url($thumb[0]) ?>" alt="<?php echo esc_html__($member->post_title, 'team-network'); ?>">
 					</div>
 						<h1 class="team-member-name">
 							<?php echo esc_html__($member->post_title, 'team-network'); ?>
