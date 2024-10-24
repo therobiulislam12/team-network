@@ -140,8 +140,10 @@ class Single_Member extends Widget_Base {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 
-		echo '<div class="title">';
-		echo $settings['title'];
-		echo '</div>';
+		?>
+
+		
+
+		<?php 
 	}
 }
