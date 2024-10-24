@@ -106,19 +106,15 @@ class Single_Member extends Widget_Base {
 		$member_id = $settings['team_member_id'];
 		$member = 'teamnetwork' == get_post_type($member_id) ? get_post($member_id) : '';
 
-		$thumb = null;
-		$member_name = null;
-		$member_excerpt = null;
+		$thumb = \Elementor\Utils::get_placeholder_image_src();
+		$member_name = 'Member Name';
+		$member_excerpt = 'Member Excerpt';
 
 		if(!empty($member)){
 			$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($member_id), 'large'); 
 			$thumb = $thumb[0];
 			$member_name = $member->post_title;
 			$member_excerpt = $member->post_excerpt;
-		}
-
-		if(empty($thumb)){
-			$thumb =  \Elementor\Utils::get_placeholder_image_src();
 		}
 
 		$live = get_post_meta( $member_id, '_tn_member_location', true );
@@ -128,30 +124,24 @@ class Single_Member extends Widget_Base {
         ?>
 
 			<style>
-				section.tn-single-member-view {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				}
-
 				.team-member-profile {
-				width: 500px;
-				background: white;
-				padding: 30px;
-				border-radius: 20px;
-				box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+					width: 500px;
+					background: white;
+					padding: 30px;
+					border-radius: 20px;
+					box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 				}
 
 				.team-member-profile .team-member-headshot img {
-				border-radius: 10px;
-				margin-bottom: 20px;
-				width: 100% !important;
-				height: 100% !important;
+					border-radius: 10px;
+					margin-bottom: 20px;
+					width: 100% !important;
+					height: 100% !important;
 				}
 
 				.team-member-profile h1.team-member-name {
-				font-size: 44px;
-				line-height: 44px;
+					font-size: 44px;
+					line-height: 44px;
 				}
 			</style>
 
