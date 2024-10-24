@@ -108,10 +108,28 @@ class Single_Member extends Widget_Base {
 
         ?>
 
-			<pre>
-				<?php print_r($member); ?>
-			</pre>
-
+			<section class="tn-single-member-view">
+			<div class="team-member-profile">
+				<div class="team-member-headshot">
+				<img fetchpriority="high" width="800" height="800" src="http://elementorplugin.com/wp-content/uploads/2024/10/1724535635540.jpeg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" decoding="async" srcset="http://elementorplugin.com/wp-content/uploads/2024/10/1724535635540.jpeg 800w, http://elementorplugin.com/wp-content/uploads/2024/10/1724535635540-300x300.jpeg 300w, http://elementorplugin.com/wp-content/uploads/2024/10/1724535635540-150x150.jpeg 150w, http://elementorplugin.com/wp-content/uploads/2024/10/1724535635540-768x768.jpeg 768w" sizes="(max-width: 800px) 100vw, 800px">
+				</div>
+				<h1 class="team-member-name">Robiul Islam</h1>
+				<div class="team-member-content">
+				<p></p>
+				<p>Robiul Islam is a wordpress plugin developer and frontend developer</p>
+				<p></p>
+				<p>
+					<strong>Job Title: </strong>WordPress Developer
+				</p>
+				<p>
+					<strong>Phone: </strong>+8801889314423
+				</p>
+				<p>
+					<strong>Based in: </strong>Narayanganj, BD
+				</p>
+				</div>
+			</div>
+			</section>
 
 		<?php
 	}
