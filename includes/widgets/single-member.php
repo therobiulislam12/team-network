@@ -92,6 +92,8 @@ class Single_Member extends Widget_Base {
 		$this->single_member_heading_style_control();
 		$this->single_member_excerpt_style_control();
 
+		$this->single_member_extra_info_style_control();
+
     }
 
     /**
@@ -449,6 +451,87 @@ class Single_Member extends Widget_Base {
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors' => [
 					'{{WRAPPER}} .team-member-profile .team-member-excerpt' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+				'default' => [
+					'top' => 0,
+					'right' => 0,
+					'bottom' => 0,
+					'left' => 0,
+					'unit' => 'px',
+					'isLinked' => true,
+				],
+			]
+		);
+
+		$this->end_controls_section();
+	}
+
+	/**
+	 * Single Member Extra Info Style Control
+	 * 
+	 * @return void
+	 * @since 1.0.0
+	 * 
+	 */
+	public function single_member_extra_info_style_control(){
+		$this->start_controls_section(
+			'member_extra_info',
+			[
+				'label' => __('Extra Info', 'team-network'),
+				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+			]
+		);
+		$this->add_responsive_control(
+			'member_box_extra_info_item_gap',
+			[
+				'label' => esc_html__( 'Gap', 'team-network' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ 'px', 'em', 'rem'],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 20,
+						'step' => 1,
+					]
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 10,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .team-member-extra-details p' => 'margin: {{SIZE}}{{UNIT}} 0px;',
+				],
+			]
+		);
+
+		$this->add_control(
+			'member_box_extra_info_item_color',
+			[
+				'label' => esc_html__( 'Color', 'team-network' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .team-member-extra-details p' => 'color: {{VALUE}}',
+				],
+				'default' => '#6a6a6a'
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'member_box_extra_info_item_typography',
+				'selector' => '{{WRAPPER}} .team-member-extra-details p',
+			]
+		);
+
+		$this->add_responsive_control(
+			'member_box_extra_info_item_margin',
+			[
+				'label' => esc_html__( 'Margin', 'team-network' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors' => [
+					'{{WRAPPER}} .team-member-extra-details' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'default' => [
 					'top' => 0,
