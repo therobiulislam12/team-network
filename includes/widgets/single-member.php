@@ -89,7 +89,8 @@ class Single_Member extends Widget_Base {
 		$this->single_member_content_control();
 
 		$this->single_member_box_style_control();
-
+		$this->single_member_heading_style_control();
+		$this->single_member_excerpt_style_control();
 
     }
 
@@ -152,7 +153,7 @@ class Single_Member extends Widget_Base {
 							<?php echo esc_html__($member_name, 'team-network'); ?>
 						</h1>
 					<div class="team-member-content">
-						<p><?php echo esc_html__($member_excerpt, 'team-network'); ?></p>
+						<p class="team-member-excerpt"><?php echo esc_html__($member_excerpt, 'team-network'); ?></p>
 						<p>
 							<strong>Job Title: </strong> <?php echo esc_html( $role );?>
 						</p>
@@ -208,7 +209,7 @@ class Single_Member extends Widget_Base {
 			'box_style',
 			[
 				'label' => __('Member Box', 'team-network'),
-				'tab' => Controls_Manager::TAB_STYLE,
+				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
 
@@ -304,6 +305,124 @@ class Single_Member extends Widget_Base {
 			[
 				'name' => 'member_box_shadow',
 				'selector' => '{{WRAPPER}} .team-member-profile',
+			]
+		);
+
+		$this->end_controls_section();
+	}
+
+	/**
+	 * Single member heading control
+	 * 
+	 * @return void
+	 * 
+	 * @since 1.0.0
+	 */
+	public function single_member_heading_style_control(){
+		$this->start_controls_section(
+			'member_heading',
+			[
+				'label' => __('Name', 'team-network'),
+				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'member_box_heading_color',
+			[
+				'label' => esc_html__( 'Color', 'team-network' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .team-member-profile h1.team-member-name' => 'color: {{VALUE}}',
+				],
+				'default' => '#111111'
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'heading_content_typography',
+				'selector' => '{{WRAPPER}} .team-member-profile h1.team-member-name',
+			]
+		);
+
+		$this->add_control(
+			'member_box_heading_margin',
+			[
+				'label' => esc_html__( 'Margin', 'team-network' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors' => [
+					'{{WRAPPER}} .team-member-profile h1.team-member-name' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+				'default' => [
+					'top' => 0,
+					'right' => 0,
+					'bottom' => 10,
+					'left' => 0,
+					'unit' => 'px',
+					'isLinked' => true,
+				],
+			]
+		);
+
+		$this->end_controls_section();
+	}
+
+	/** 
+	 * Member Excerpt style control
+	 * 
+	 * 
+	 * @return void
+	 */
+	public function single_member_excerpt_style_control(){
+
+		$this->start_controls_section(
+			'member_excerpt',
+			[
+				'label' => __('Excerpt', 'team-network'),
+				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'member_box_excerpt_color',
+			[
+				'label' => esc_html__( 'Color', 'team-network' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .team-member-profile .team-member-excerpt' => 'color: {{VALUE}}',
+				],
+				'default' => '#6a6a6a'
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'excerpt_content_typography',
+				'selector' => '{{WRAPPER}} .team-member-profile .team-member-excerpt',
+			]
+		);
+
+		$this->add_control(
+			'member_box_excerpt_margin',
+			[
+				'label' => esc_html__( 'Margin', 'team-network' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors' => [
+					'{{WRAPPER}} .team-member-profile .team-member-excerpt' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+				'default' => [
+					'top' => 0,
+					'right' => 0,
+					'bottom' => 0,
+					'left' => 0,
+					'unit' => 'px',
+					'isLinked' => true,
+				],
 			]
 		);
 
