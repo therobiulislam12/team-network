@@ -108,7 +108,7 @@ class Single_Member extends Widget_Base {
     protected function render() {
         $settings = $this->get_settings_for_display();
 
-		$member_id = $settings['team_member_id'];
+		$member_id = $settings['team-member-name'];
 		$member = 'teamnetwork' == get_post_type($member_id) ? get_post($member_id) : '';
 
 		$thumb = \Elementor\Utils::get_placeholder_image_src();
@@ -183,6 +183,34 @@ class Single_Member extends Widget_Base {
 	 * @since 1.0.0
 	 */
     protected function single_member_content_control() {
+		  // Fetch all team members
+		  $all_members = get_posts([
+			'post_type' => 'teamnetwork',
+			'numberposts' => -1,
+			'post_status' => 'publish',
+		]);
+	
+		// Initialize an empty array to hold the team member options
+		$team_member_options = [];
+	
+		// Loop through each post and add it to the options array
+		foreach ($all_members as $member) {
+			// Use the post ID as the value, and the post title (name) as the label
+			$team_member_options[$member->ID] = $member->post_title;
+		}
+	
+		// If no members found, add a default 'none' option
+		if (empty($team_member_options)) {
+			$team_member_options['none'] = esc_html__('No members found', 'team-network');
+		}
+
+		$default_value = '';
+		if (!empty($all_members)) {
+			// If team members exist, set the first team member as the default
+			$default_value = $all_members[0]->ID;
+		}
+
+
         $this->start_controls_section(
             'section_content',
             [
@@ -190,15 +218,15 @@ class Single_Member extends Widget_Base {
             ]
         );
 
-        $this->add_control(
-            'team_member_id',
-            [
-                'label' => __( 'Team Member ID', 'team-network' ),
-                'type'  => Controls_Manager::NUMBER,
-				'placeholder' => '1',
-				'separator' => 'after'
-            ]
-        );
+		$this->add_control(
+			'team-member-name',
+			[
+				'label' => 'Member Name',
+				'type' => Controls_Manager::SELECT,
+				'options' => $team_member_options,
+				'default' => $default_value, 
+			]
+		);
 
 		$this->add_control(
             'team_member_job_title_label',
