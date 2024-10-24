@@ -154,15 +154,18 @@ class Single_Member extends Widget_Base {
 						</h1>
 					<div class="team-member-content">
 						<p class="team-member-excerpt"><?php echo esc_html__($member_excerpt, 'team-network'); ?></p>
-						<p>
-							<strong>Job Title: </strong> <?php echo esc_html( $role );?>
-						</p>
-						<p>
-							<strong>Phone: </strong> <?php echo esc_html( $phone );?>
-						</p>
-						<p>
-							<strong>Based in: </strong> <?php echo esc_html( $live );?>
-						</p>
+						
+						<div class="team-member-extra-details">
+							<p>
+								<strong><?php echo esc_html__($settings['team_member_job_title_label'], 'team-network') ?>: </strong> <?php echo esc_html( $role );?>
+							</p>
+							<p>
+								<strong><?php echo esc_html__($settings['team_member_phone_label'], 'team-network') ?>: </strong> <?php echo esc_html( $phone );?>
+							</p>
+							<p>
+								<strong><?php echo esc_html__($settings['team_member_based_in_label'], 'team-network') ?>: </strong> <?php echo esc_html( $live );?>
+							</p>
+						</div>
 						
 					</div>
 				</div>
@@ -188,8 +191,40 @@ class Single_Member extends Widget_Base {
         $this->add_control(
             'team_member_id',
             [
-                'label' => __( 'Select Team Member', 'team-network' ),
+                'label' => __( 'Team Member ID', 'team-network' ),
+                'type'  => Controls_Manager::NUMBER,
+				'placeholder' => '1',
+				'separator' => 'after'
+            ]
+        );
+
+		$this->add_control(
+            'team_member_job_title_label',
+            [
+                'label' => __( 'Job Title Label', 'team-network' ),
                 'type'  => Controls_Manager::TEXT,
+				'default' => 'Job Title'
+				
+            ]
+        );
+
+		$this->add_control(
+            'team_member_phone_label',
+            [
+                'label' => __( 'Phone Label', 'team-network' ),
+                'type'  => Controls_Manager::TEXT,
+				'default' => 'Phone'
+				
+            ]
+        );
+
+		$this->add_control(
+            'team_member_based_in_label',
+            [
+                'label' => __( 'Location Label', 'team-network' ),
+                'type'  => Controls_Manager::TEXT,
+				'default' => 'Based in'
+				
             ]
         );
 
