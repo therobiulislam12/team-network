@@ -86,7 +86,9 @@ class Single_Member extends Widget_Base {
      */
     protected function register_controls() {
 
-		$this->single_team_content_control();
+		$this->single_member_content_control();
+
+		$this->single_member_box_style_control();
 
 
     }
@@ -125,10 +127,6 @@ class Single_Member extends Widget_Base {
 
 			<style>
 				.team-member-profile {
-					width: 500px;
-					background: white;
-					padding: 30px;
-					border-radius: 20px;
 					box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 				}
 
@@ -178,7 +176,7 @@ class Single_Member extends Widget_Base {
 	 * @return void
 	 * @since 1.0.0
 	 */
-    protected function single_team_content_control() {
+    protected function single_member_content_control() {
         $this->start_controls_section(
             'section_content',
             [
@@ -197,4 +195,118 @@ class Single_Member extends Widget_Base {
 
         $this->end_controls_section();
     }
+
+	/**
+	 * Single Member Box style Control
+	 * 
+	 * @return void
+	 * 
+	 * @since 1.0.0
+	 */
+	public function single_member_box_style_control(){
+		$this->start_controls_section(
+			'box_style',
+			[
+				'label' => __('Member Box', 'team-network'),
+				'tab' => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'member-box-width',
+			[
+				'label' => esc_html__( 'Box Width', 'team-network' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 500,
+						'step' => 1,
+					],
+					'%' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 500,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .team-member-profile' => 'width: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'member_box_color',
+			[
+				'label' => esc_html__( 'Box Color', 'team-network' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .team-member-profile' => 'background-color: {{VALUE}}',
+				],
+				'default' => '#ffffff'
+			]
+		);
+
+		$this->add_control(
+			'member_box_padding',
+			[
+				'label' => esc_html__( 'Box Padding', 'team-network' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors' => [
+					'{{WRAPPER}} .team-member-profile' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+				'default' => [
+					'top' => 30,
+					'right' => 30,
+					'bottom' => 30,
+					'left' => 30,
+					'unit' => 'px',
+					'isLinked' => true,
+				],
+			]
+		);
+
+		$this->add_control(
+			'member_box_border_radius',
+			[
+				'label' => esc_html__( 'Box Border Radius', 'team-network' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem'],
+				'selectors' => [
+					'{{WRAPPER}} .team-member-profile' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+				'default' => [
+					'top' => 20,
+					'right' => 20,
+					'bottom' => 20,
+					'left' => 20,
+					'unit' => 'px',
+					'isLinked' => true,
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name' => 'member_box_border',
+				'selector' => '{{WRAPPER}} .team-member-profile',
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'member_box_shadow',
+				'selector' => '{{WRAPPER}} .team-member-profile',
+			]
+		);
+
+		$this->end_controls_section();
+	}
 }
