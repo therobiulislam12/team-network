@@ -248,7 +248,7 @@ class Single_Member extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'member-box-width',
 			[
 				'label' => esc_html__( 'Box Width', 'team-network' ),
@@ -287,7 +287,7 @@ class Single_Member extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'member_box_padding',
 			[
 				'label' => esc_html__( 'Box Padding', 'team-network' ),
@@ -307,7 +307,7 @@ class Single_Member extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'member_box_border_radius',
 			[
 				'label' => esc_html__( 'Box Border Radius', 'team-network' ),
@@ -382,7 +382,7 @@ class Single_Member extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'member_box_heading_margin',
 			[
 				'label' => esc_html__( 'Margin', 'team-network' ),
@@ -441,7 +441,7 @@ class Single_Member extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'member_box_excerpt_margin',
 			[
 				'label' => esc_html__( 'Margin', 'team-network' ),
