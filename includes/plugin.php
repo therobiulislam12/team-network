@@ -64,10 +64,12 @@ class Plugin {
         // Its is now safe to include Widgets files
         require_once __DIR__ . '/widgets/test.php';
         require_once __DIR__ . '/widgets/team-grid.php';
+        require_once __DIR__ . '/widgets/single-member.php';
 
         // Register Widgets
         $widgets_manager->register( new Widgets\Team_Grid() );
         $widgets_manager->register( new Widgets\Test_addons() );
+        $widgets_manager->register( new Widgets\Single_Member() );
     }
 
     /**
