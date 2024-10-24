@@ -88,33 +88,7 @@ class Single_Member extends Widget_Base {
 
 		$this->single_team_content_control();
 
-        $this->start_controls_section(
-            'section_style',
-            [
-                'label' => __( 'Style', 'team-network' ),
-                'tab'   => Controls_Manager::TAB_STYLE,
-            ]
-        );
 
-        $this->add_control(
-            'text_transform',
-            [
-                'label'     => __( 'Text Transform', 'team-network' ),
-                'type'      => Controls_Manager::SELECT,
-                'default'   => '',
-                'options'   => [
-                    ''           => __( 'None', 'team-network' ),
-                    'uppercase'  => __( 'UPPERCASE', 'team-network' ),
-                    'lowercase'  => __( 'lowercase', 'team-network' ),
-                    'capitalize' => __( 'Capitalize', 'team-network' ),
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .title' => 'text-transform: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->end_controls_section();
     }
 
     /**
@@ -134,8 +108,14 @@ class Single_Member extends Widget_Base {
 
 
 		<?php
-}
+	}
 
+	/**
+	 * Single team member content control here
+	 * 
+	 * @return void
+	 * @since 1.0.0
+	 */
     protected function single_team_content_control() {
         $this->start_controls_section(
             'section_content',
@@ -145,12 +125,13 @@ class Single_Member extends Widget_Base {
         );
 
         $this->add_control(
-            'title',
+            'team_member_id',
             [
-                'label' => __( 'Title', 'team-network' ),
-                'type'  => Controls_Manager::TEXT,
+                'label' => __( 'Select Team Member', 'team-network' ),
+                'type'  => Controls_Manager::SELECT,
             ]
         );
+		
 
         $this->end_controls_section();
     }
