@@ -103,8 +103,14 @@ class Single_Member extends Widget_Base {
     protected function render() {
         $settings = $this->get_settings_for_display();
 
+		$member_id = $settings['team_member_id'];
+		$member = get_post($member_id);
+
         ?>
 
+			<pre>
+				<?php print_r($member); ?>
+			</pre>
 
 
 		<?php
@@ -128,10 +134,10 @@ class Single_Member extends Widget_Base {
             'team_member_id',
             [
                 'label' => __( 'Select Team Member', 'team-network' ),
-                'type'  => Controls_Manager::SELECT,
+                'type'  => Controls_Manager::TEXT,
             ]
         );
-		
+
 
         $this->end_controls_section();
     }
