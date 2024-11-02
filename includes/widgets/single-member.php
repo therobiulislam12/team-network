@@ -117,7 +117,7 @@ class Single_Member extends Widget_Base {
 
 		if(!empty($member)){
 			$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($member_id), 'large'); 
-			$thumb = $thumb[0];
+			$thumb = is_array($thumb) ? $thumb[0] : '';
 			$member_name = $member->post_title;
 			$member_excerpt = $member->post_excerpt;
 		}
