@@ -13,21 +13,20 @@
   padding: 30px;
   border-radius: 20px;
 }
-
 .team-member-profile .team-member-headshot img {
   border-radius: 10px;
   margin-bottom: 20px;
   width: 100% !important;
   height: 100% !important;
 }
-.team-member-profile .team-member-extra-info{
+.team-member-profile .team-member-extra-info {
   margin: 30px 0 20px;
 }
 .team-member-profile h1.team-member-name {
   font-size: 44px;
   line-height: 44px;
 }
-.team-member-profile .team-social-media{
+.team-member-profile .team-social-media {
   margin-top: 20px;
 }
 .team-member-profile .team-social-media ul li {
@@ -38,6 +37,21 @@
 .team-member-profile .team-social-media ul {
   padding: 0;
 }
-.team-member-profile .team-social-media svg{
+.team-member-profile .team-social-media svg {
   transition: all 0.3s ease;
+}
+
+
+/* Responsive for mobile */
+@media only screen and (max-width: 501px) {
+  .team-member-profile {
+    width: 90%;
+  }
+  .team-member-profile h1.team-member-name {
+    font-size: 34px;
+    line-height: 34px;
+  }
+  .team-member-profile .team-social-media {
+    margin-top: 10px;
+  }
 }
