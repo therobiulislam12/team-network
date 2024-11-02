@@ -22,8 +22,30 @@ class Menu {
 
         // plugin page link setup land on plugin menu
         add_action( 'plugin_action_links_' . plugin_basename( TN_FILE ), array( $this, 'tn_plugin_menu_option' ) );
+
+        // admin admin menu page
+        add_action('admin_menu', array($this, 'tn_general_settings_menu'));
     }
 
+    /**
+     * Add here general settings menu for customization Single Template
+     * 
+     * @return void
+     * @since 1.0.0
+     */
+    public function tn_general_settings_menu(){
+        add_submenu_page(
+            'edit.php?post_type=teamnetwork',
+            __('General Settings', 'team-network'),
+            __('Customization', 'team-network'),
+            'manage_options',
+            'tn_general_settings',
+            array($this, 'tn_general_page_settings'),
+        );
+    }
+    public function tn_general_page_settings(){
+        echo '<div class="wrap"><h1>Single Template Customization</h1></div>';
+    }
     /**
      * Add custom meta boxes for the 'teamnetwork' post type
      *

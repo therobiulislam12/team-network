@@ -10,6 +10,8 @@ class Post_Type {
      */
     public function team_network_post_type() {
 
+        $menu_icon = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB4PSIwIiB5PSIwIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMiIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PGc+PHBhdGggZD0iTTQ4MC42ODIgMzE5LjYzM3YtMzIuMzE1aC0xNDguOTdjMCA0MS44MTQtMzMuODk3IDc1LjcxMi03NS43MTIgNzUuNzEycy03NS43MTItMzMuODk3LTc1LjcxMi03NS43MTJIMzEuMzE4djMyLjMxNWw2NC42ODggNi44NWExNjMuNyAxNjMuNyAwIDAgMCAxOS4xNzcgNDYuMjYybC00MC45MDggNTAuNTk3IDQ1LjcwMSA0NS43MDEgNTAuNTk3LTQwLjkwOGExNjMuNyAxNjMuNyAwIDAgMCA0Ni4yNjIgMTkuMTc3bDYuODUgNjQuNjg4aDY0LjYzbDYuODUtNjQuNjg4YTE2My43IDE2My43IDAgMCAwIDQ2LjI2Mi0xOS4xNzdsNTAuNTk3IDQwLjkwOCA0NS43MDEtNDUuNzAxLTQwLjkwOC01MC41OTdhMTYzLjcgMTYzLjcgMCAwIDAgMTkuMTc3LTQ2LjI2Mmw2NC42ODgtNi44NXpNMjU2IDBjLTMxLjk5OSAwLTU4LjAzMyAyNi4wMzQtNTguMDMzIDU4LjAzMyAwIDMxLjk5OSAyNi4wMzQgNTguMDMyIDU4LjAzMyA1OC4wMzIgMzEuOTk5IDAgNTguMDMzLTI2LjAzMyA1OC4wMzMtNTguMDMyQzMxNC4wMzMgMjYuMDM0IDI4Ny45OTkgMCAyNTYgMHpNMzE3Ljc4NyAxMzIuMTA5SDE5NC4yMTNjLTI4LjQ0OS4wMDEtNTEuNTk0IDIzLjE0NS01MS41OTQgNTEuNTk0djczLjYxNGgyMjYuNzYydi03My42MTRjMC0yOC40NDktMjMuMTQ1LTUxLjU5NC01MS41OTQtNTEuNTk0ek0xMzIuODg3IDI2LjgwOGMtMjguNjY2IDAtNTEuOTg3IDIzLjMyMi01MS45ODcgNTEuOTg3IDAgMjguNDM1IDIyLjk1MSA1MS41OTggNTEuMyA1MS45NjkgMTEuNzQtMTMuNzMyIDI3LjkzOS0yMy41MzMgNDYuMzQzLTI3LjEyOGE1MS42NjYgNTEuNjY2IDAgMCAwIDYuMzMxLTI0Ljg0MWMwLTI4LjY2Ni0yMy4zMjEtNTEuOTg3LTUxLjk4Ny01MS45ODd6TTc3LjUzNyAxNDUuMTU0Yy0yNS40ODUgMC00Ni4yMTkgMjAuNzMzLTQ2LjIxOSA0Ni4yMTl2NjUuOTQ1aDgxLjMwMXYtNzMuNjE1YTgxLjA3OCA4MS4wNzggMCAwIDEgOS43MDMtMzguNTQ5SDc3LjUzN3pNMzc5LjExMyAyNi44MDhjLTI4LjY2NiAwLTUxLjk4NyAyMy4zMjItNTEuOTg3IDUxLjk4N2E1MS42NjkgNTEuNjY5IDAgMCAwIDYuMzMgMjQuODQxYzE4LjQwNSAzLjU5NSAzNC42MDQgMTMuMzk2IDQ2LjM0NCAyNy4xMjggMjguMzQ5LS4zNyA1MS4zLTIzLjUzNCA1MS4zLTUxLjk2OSAwLTI4LjY2Ni0yMy4zMjEtNTEuOTg3LTUxLjk4Ny01MS45ODd6TTQzNC40NjMgMTQ1LjE1NGgtNDQuNzg1YTgxLjA3OCA4MS4wNzggMCAwIDEgOS43MDMgMzguNTQ5djczLjYxNGg4MS4zMDF2LTY1Ljk0NWMwLTI1LjQ4NS0yMC43MzQtNDYuMjE4LTQ2LjIxOS00Ni4yMTh6IiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIxIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIj48L3BhdGg+PC9nPjwvc3ZnPg==';
+
         $labels = array(
             'name'                  => _x( 'Team Network', 'Post Type General Name', 'team-network' ),
             'singular_name'         => _x( 'Team Network', 'Post Type Singular Name', 'team-network' ),
@@ -58,7 +60,8 @@ class Post_Type {
             'rewrite'             => array( 'slug' => 'team' ),
             'publicly_queryable'  => true,
             'capability_type'     => 'post',
-            'menu_icon'           => 'dashicons-groups',
+            // 'menu_icon'           => 'dashicons-groups',
+            'menu_icon'           => $menu_icon,
             'show_in_rest'        => true,
             'rest_base'           => 'team-network',
         );

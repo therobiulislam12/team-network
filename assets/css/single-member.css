@@ -1,4 +1,4 @@
-section.tn-single-member-view {
+.tn-single-member-view {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -20,8 +20,24 @@ section.tn-single-member-view {
   width: 100% !important;
   height: 100% !important;
 }
-
+.team-member-profile .team-member-extra-info{
+  margin: 30px 0 20px;
+}
 .team-member-profile h1.team-member-name {
   font-size: 44px;
   line-height: 44px;
+}
+.team-member-profile .team-social-media{
+  margin-top: 20px;
+}
+.team-member-profile .team-social-media ul li {
+  display: inline-block;
+  list-style: none;
+  margin-right: 10px;
+}
+.team-member-profile .team-social-media ul {
+  padding: 0;
+}
+.team-member-profile .team-social-media svg{
+  transition: all 0.3s ease;
 }
