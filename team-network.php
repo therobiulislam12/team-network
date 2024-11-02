@@ -74,6 +74,9 @@ final class Team_Network {
         // add post type
         add_action( 'init', array( $this, 'tn_init' ) );
 
+        // activation hook
+        register_activation_hook(TN_FILE, array($this, 'tn_register_activation_hook'));
+
     }
 
     public function tn_init() {
@@ -148,6 +151,17 @@ final class Team_Network {
         define( 'TN_FILE', __FILE__ );
         define( 'TN_DIR_PATH', plugin_dir_url( TN_FILE ) );
         define( 'TN_FILE_ASSETS', TN_DIR_PATH . 'assets/' );
+    }
+
+    /**
+     * Activation hook for after install plugin
+     * flush custom post type
+     * 
+     * @return void
+     * @since 1.0.0
+     */
+    public function tn_register_activation_hook(){
+        flush_rewrite_rules();
     }
 
     /**
