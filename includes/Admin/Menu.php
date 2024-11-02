@@ -43,6 +43,14 @@ class Menu {
             array($this, 'tn_general_page_settings'),
         );
     }
+
+    /**
+     * Customization settings added here
+     * 
+     * @return void
+     * 
+     * @since 1.0.0
+     */
     public function tn_general_page_settings(){
         echo '<div class="wrap"><h1>Single Template Customization</h1></div>';
     }
