@@ -76,6 +76,20 @@ class Team_Grid extends Widget_Base {
     }
 
     /**
+     * Get style dependencies.
+     *
+     * Retrieve the list of style dependencies the widget requires.
+     *
+     * @since 3.24.0
+     * @access public
+     *
+     * @return array Widget style dependencies.
+     */
+    public function get_style_depends(): array {
+        return ['tn-team-grid-style-1'];
+    }
+
+    /**
      * Register the widget controls.
      *
      * Adds different input fields to allow the user to change and customize the widget settings.
@@ -151,14 +165,249 @@ class Team_Grid extends Widget_Base {
      */
     protected function render() {
         $settings = $this->get_settings_for_display();
-        $team_grid_style = $settings['team_grid_style'];
+
         ?>
-		<?php if ( 'style-1' === $team_grid_style ) {?>
-			<h1>Style 1</h1>
-		<?php } elseif ( 'style-2' === $team_grid_style ) {?>
-			<h1>Style 2</h1>
-		<?php } else {?>
-			<h1>Style 3</h1>
-		<?php }
-    }
+        <div class="team-network-team-grid-1-section">
+            <div class="tn-team-item">
+                <div class="tn-team-member tn-left tn-position-top">
+                    <div class="tn-team-member-thumb">
+                        <img loading="lazy" decoding="async" width="1000" height="1000"
+                            src="https://exclusiveaddons.com/wp-content/uploads/2020/05/rush-perruque-femme-primepower.jpg"
+                            class="attachment-full size-full wp-image-5383" alt=""
+                            srcset="https://exclusiveaddons.com/wp-content/uploads/2020/05/rush-perruque-femme-primepower.jpg 1000w, https://exclusiveaddons.com/wp-content/uploads/2020/05/rush-perruque-femme-primepower-300x300.jpg 300w, https://exclusiveaddons.com/wp-content/uploads/2020/05/rush-perruque-femme-primepower-100x100.jpg 100w, https://exclusiveaddons.com/wp-content/uploads/2020/05/rush-perruque-femme-primepower-600x600.jpg 600w"
+                            sizes="(max-width: 1000px) 100vw, 1000px">
+                    </div>
+                    <div class="tn-team-member-content">
+                        <h3 class="tn-team-member-name">
+                            Francis Terry
+                        </h3>
+                        <span class="tn-team-member-designation">Marketing Director </span>
+                        <div class="tn-team-member-about">
+                            Neque enim omnis et quidem temporibus quo in. Tenetur quaerat repellendus. Veniam quisquam aut
+                            ...
+                        </div>
+                        <ul class="list-inline tn-team-member-social">
+                            <li>
+                                <a href="#" target="_blank" class="tn-social-icon elementor-repeater-item-2c09094">
+                                    <i aria-hidden="true" class="fab fa-facebook-f"></i> </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" class="tn-social-icon elementor-repeater-item-ebfbc25">
+                                    <i aria-hidden="true" class="fab fa-instagram"></i> </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" class="tn-social-icon elementor-repeater-item-8f71149">
+                                    <i aria-hidden="true" class="fab fa-linkedin-in"></i> </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" class="tn-social-icon elementor-repeater-item-611a6e0">
+                                    <i aria-hidden="true" class="fab fa-dribbble"></i> </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="tn-team-item">
+                <div class="tn-team-member tn-left tn-position-top">
+                    <div class="tn-team-member-thumb">
+                        <img loading="lazy" decoding="async" width="1000" height="1000"
+                            src="https://exclusiveaddons.com/wp-content/uploads/2020/05/rush-perruque-femme-primepower.jpg"
+                            class="attachment-full size-full wp-image-5383" alt=""
+                            srcset="https://exclusiveaddons.com/wp-content/uploads/2020/05/rush-perruque-femme-primepower.jpg 1000w, https://exclusiveaddons.com/wp-content/uploads/2020/05/rush-perruque-femme-primepower-300x300.jpg 300w, https://exclusiveaddons.com/wp-content/uploads/2020/05/rush-perruque-femme-primepower-100x100.jpg 100w, https://exclusiveaddons.com/wp-content/uploads/2020/05/rush-perruque-femme-primepower-600x600.jpg 600w"
+                            sizes="(max-width: 1000px) 100vw, 1000px">
+                    </div>
+                    <div class="tn-team-member-content">
+                        <h3 class="tn-team-member-name">
+                            Francis Terry
+                        </h3>
+                        <span class="tn-team-member-designation">
+                            Marketing Director </span>
+                        <div class="tn-team-member-about">
+                            Neque enim omnis et quidem temporibus quo in. Tenetur quaerat repellendus. Veniam quisquam aut
+                            ...
+                        </div>
+                        <ul class="list-inline tn-team-member-social">
+                            <li>
+                                <a href="#" target="_blank" class="tn-social-icon elementor-repeater-item-2c09094">
+                                    <i aria-hidden="true" class="fab fa-facebook-f"></i> </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" class="tn-social-icon elementor-repeater-item-ebfbc25">
+                                    <i aria-hidden="true" class="fab fa-instagram"></i> </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" class="tn-social-icon elementor-repeater-item-8f71149">
+                                    <i aria-hidden="true" class="fab fa-linkedin-in"></i> </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" class="tn-social-icon elementor-repeater-item-611a6e0">
+                                    <i aria-hidden="true" class="fab fa-dribbble"></i> </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="tn-team-item">
+                <div class="tn-team-member tn-left tn-position-top">
+                    <div class="tn-team-member-thumb">
+                        <img loading="lazy" decoding="async" width="1000" height="1000"
+                            src="https://exclusiveaddons.com/wp-content/uploads/2020/05/rush-perruque-femme-primepower.jpg"
+                            class="attachment-full size-full wp-image-5383" alt=""
+                            srcset="https://exclusiveaddons.com/wp-content/uploads/2020/05/rush-perruque-femme-primepower.jpg 1000w, https://exclusiveaddons.com/wp-content/uploads/2020/05/rush-perruque-femme-primepower-300x300.jpg 300w, https://exclusiveaddons.com/wp-content/uploads/2020/05/rush-perruque-femme-primepower-100x100.jpg 100w, https://exclusiveaddons.com/wp-content/uploads/2020/05/rush-perruque-femme-primepower-600x600.jpg 600w"
+                            sizes="(max-width: 1000px) 100vw, 1000px">
+                    </div>
+                    <div class="tn-team-member-content">
+                        <h3 class="tn-team-member-name">
+                            Francis Terry
+                        </h3>
+                        <span class="tn-team-member-designation">
+                            Marketing Director </span>
+                        <div class="tn-team-member-about">
+                            Neque enim omnis et quidem temporibus quo in. Tenetur quaerat repellendus. Veniam quisquam aut
+                            ...
+                        </div>
+                        <ul class="list-inline tn-team-member-social">
+                            <li>
+                                <a href="#" target="_blank" class="tn-social-icon elementor-repeater-item-2c09094">
+                                    <i aria-hidden="true" class="fab fa-facebook-f"></i> </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" class="tn-social-icon elementor-repeater-item-ebfbc25">
+                                    <i aria-hidden="true" class="fab fa-instagram"></i> </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" class="tn-social-icon elementor-repeater-item-8f71149">
+                                    <i aria-hidden="true" class="fab fa-linkedin-in"></i> </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" class="tn-social-icon elementor-repeater-item-611a6e0">
+                                    <i aria-hidden="true" class="fab fa-dribbble"></i> </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="tn-team-item">
+                <div class="tn-team-member tn-left tn-position-top">
+                    <div class="tn-team-member-thumb">
+                        <img loading="lazy" decoding="async" width="1000" height="1000"
+                            src="https://exclusiveaddons.com/wp-content/uploads/2020/05/rush-perruque-femme-primepower.jpg"
+                            class="attachment-full size-full wp-image-5383" alt=""
+                            srcset="https://exclusiveaddons.com/wp-content/uploads/2020/05/rush-perruque-femme-primepower.jpg 1000w, https://exclusiveaddons.com/wp-content/uploads/2020/05/rush-perruque-femme-primepower-300x300.jpg 300w, https://exclusiveaddons.com/wp-content/uploads/2020/05/rush-perruque-femme-primepower-100x100.jpg 100w, https://exclusiveaddons.com/wp-content/uploads/2020/05/rush-perruque-femme-primepower-600x600.jpg 600w"
+                            sizes="(max-width: 1000px) 100vw, 1000px">
+                    </div>
+                    <div class="tn-team-member-content">
+                        <h3 class="tn-team-member-name">
+                            Francis Terry
+                        </h3>
+                        <span class="tn-team-member-designation">
+                            Marketing Director </span>
+                        <div class="tn-team-member-about">
+                            Neque enim omnis et quidem temporibus quo in. Tenetur quaerat repellendus. Veniam quisquam aut
+                            ...
+                        </div>
+                        <ul class="list-inline tn-team-member-social">
+                            <li>
+                                <a href="#" target="_blank" class="tn-social-icon elementor-repeater-item-2c09094">
+                                    <i aria-hidden="true" class="fab fa-facebook-f"></i> </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" class="tn-social-icon elementor-repeater-item-ebfbc25">
+                                    <i aria-hidden="true" class="fab fa-instagram"></i> </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" class="tn-social-icon elementor-repeater-item-8f71149">
+                                    <i aria-hidden="true" class="fab fa-linkedin-in"></i> </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" class="tn-social-icon elementor-repeater-item-611a6e0">
+                                    <i aria-hidden="true" class="fab fa-dribbble"></i> </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="tn-team-item">
+                <div class="tn-team-member tn-left tn-position-top">
+                    <div class="tn-team-member-thumb">
+                        <img loading="lazy" decoding="async" width="1000" height="1000"
+                            src="https://exclusiveaddons.com/wp-content/uploads/2020/05/rush-perruque-femme-primepower.jpg"
+                            class="attachment-full size-full wp-image-5383" alt=""
+                            srcset="https://exclusiveaddons.com/wp-content/uploads/2020/05/rush-perruque-femme-primepower.jpg 1000w, https://exclusiveaddons.com/wp-content/uploads/2020/05/rush-perruque-femme-primepower-300x300.jpg 300w, https://exclusiveaddons.com/wp-content/uploads/2020/05/rush-perruque-femme-primepower-100x100.jpg 100w, https://exclusiveaddons.com/wp-content/uploads/2020/05/rush-perruque-femme-primepower-600x600.jpg 600w"
+                            sizes="(max-width: 1000px) 100vw, 1000px">
+                    </div>
+                    <div class="tn-team-member-content">
+                        <h3 class="tn-team-member-name">
+                            Francis Terry
+                        </h3>
+                        <span class="tn-team-member-designation">
+                            Marketing Director </span>
+                        <div class="tn-team-member-about">
+                            Neque enim omnis et quidem temporibus quo in. Tenetur quaerat repellendus. Veniam quisquam aut
+                            ...
+                        </div>
+                        <ul class="list-inline tn-team-member-social">
+                            <li>
+                                <a href="#" target="_blank" class="tn-social-icon elementor-repeater-item-2c09094">
+                                    <i aria-hidden="true" class="fab fa-facebook-f"></i> </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" class="tn-social-icon elementor-repeater-item-ebfbc25">
+                                    <i aria-hidden="true" class="fab fa-instagram"></i> </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" class="tn-social-icon elementor-repeater-item-8f71149">
+                                    <i aria-hidden="true" class="fab fa-linkedin-in"></i> </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" class="tn-social-icon elementor-repeater-item-611a6e0">
+                                    <i aria-hidden="true" class="fab fa-dribbble"></i> </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="tn-team-item">
+                <div class="tn-team-member tn-left tn-position-top">
+                    <div class="tn-team-member-thumb">
+                        <img loading="lazy" decoding="async" width="1000" height="1000"
+                            src="https://exclusiveaddons.com/wp-content/uploads/2020/05/rush-perruque-femme-primepower.jpg"
+                            class="attachment-full size-full wp-image-5383" alt=""
+                            srcset="https://exclusiveaddons.com/wp-content/uploads/2020/05/rush-perruque-femme-primepower.jpg 1000w, https://exclusiveaddons.com/wp-content/uploads/2020/05/rush-perruque-femme-primepower-300x300.jpg 300w, https://exclusiveaddons.com/wp-content/uploads/2020/05/rush-perruque-femme-primepower-100x100.jpg 100w, https://exclusiveaddons.com/wp-content/uploads/2020/05/rush-perruque-femme-primepower-600x600.jpg 600w"
+                            sizes="(max-width: 1000px) 100vw, 1000px">
+                    </div>
+                    <div class="tn-team-member-content">
+                        <h3 class="tn-team-member-name">
+                            Francis Terry
+                        </h3>
+                        <span class="tn-team-member-designation">
+                            Marketing Director </span>
+                        <div class="tn-team-member-about">
+                            Neque enim omnis et quidem temporibus quo in. Tenetur quaerat repellendus. Veniam quisquam aut
+                            ...
+                        </div>
+                        <ul class="list-inline tn-team-member-social">
+                            <li>
+                                <a href="#" target="_blank" class="tn-social-icon elementor-repeater-item-2c09094">
+                                    <i aria-hidden="true" class="fab fa-facebook-f"></i> </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" class="tn-social-icon elementor-repeater-item-ebfbc25">
+                                    <i aria-hidden="true" class="fab fa-instagram"></i> </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" class="tn-social-icon elementor-repeater-item-8f71149">
+                                    <i aria-hidden="true" class="fab fa-linkedin-in"></i> </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" class="tn-social-icon elementor-repeater-item-611a6e0">
+                                    <i aria-hidden="true" class="fab fa-dribbble"></i> </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<?php
+}
 }
