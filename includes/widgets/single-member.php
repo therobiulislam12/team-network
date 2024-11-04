@@ -149,7 +149,7 @@ class Single_Member extends Widget_Base {
 			<section class="tn-single-member-view">
 				<div class="team-member-profile">
 					<div class="team-member-headshot">
-						<img src="<?php echo esc_url($thumb) ?>" alt="<?php echo esc_html__($member_name, 'team-network'); ?>">
+						<img src="<?php echo esc_url($thumb) ?>" alt="<?php echo esc_attr($member_name); ?>">
 					</div>
 						<h1 class="team-member-name">
 							<?php echo esc_html__($member_name, 'team-network'); ?>
