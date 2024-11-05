@@ -1,0 +1,90 @@
+.team-network-team-grid-1-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.team-network-team-grid-1-section .tnad-team-member{
+    background-color: #fff;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #dddfe6;
+    border-radius: 0 0 0 0;
+    padding: 0;
+    margin: 0;
+}
+.team-network-team-grid-1-section .tnad-team-member .tnad-team-member-thumb{
+    border-radius: 0 0 0 0;
+    margin: 10px 13px 0px;
+}
+.team-network-team-grid-1-section .tnad-team-member .tnad-team-member-thumb img{
+    height: 100%;
+    width: 100%;
+    border-radius: 0 0 0 0;
+    display: block;
+    object-fit: cover;
+}
+.team-network-team-grid-1-section .tnad-team-member .tnad-team-member-content{
+    padding: 10px;
+    margin: 0;
+    border-radius: 0 0 0 0;
+    text-align: center;
+}
+.team-network-team-grid-1-section .tnad-team-member .tnad-team-member-content .tnad-team-member-name{
+    color: #000;
+    font-size: 14px;
+    margin: 0;
+}
+.team-network-team-grid-1-section .tnad-team-member .tnad-team-member-content .tnad-team-member-designation{
+    color: #8a8d91;
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0 0 10px;
+    display: block;
+}
+.team-network-team-grid-1-section .tnad-team-member .tnad-team-member-content .tnad-team-member-about{
+    color: #5a6471;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.5em;
+    margin: 0 0 10px;
+}
+.team-network-team-grid-1-section .tnad-team-member .tnad-team-member-content .tnad-team-member-social{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.team-network-team-grid-1-section .tnad-team-member .tnad-team-member-content .tnad-team-member-social li{
+    list-style: none;
+    display: inline-block;
+    line-height: 1.5;
+}
+
+.team-network-team-grid-1-section .tnad-team-member .tnad-team-member-content .tnad-team-member-social li a{
+    padding: 16px;
+    border-radius: 0 0 0 0;
+    margin: 0 8px 0 0;
+    background-color: #fff;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #b7bac8;
+    display: block;
+    position: relative;
+    transition: all .3s ease;
+    text-decoration: none;
+}
+.team-network-team-grid-1-section .tnad-team-member .tnad-team-member-content .tnad-team-member-social li a:hover{
+    background-color: #b7bac8;
+}
+
+.team-network-team-grid-1-section .tnad-team-member .tnad-team-member-content .tnad-team-member-social li a i{
+    font-size: 14px;
+    color: #b7bac8;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.team-network-team-grid-1-section .tnad-team-member .tnad-team-member-content .tnad-team-member-social li a:hover i{
+    color: #fff;
+}

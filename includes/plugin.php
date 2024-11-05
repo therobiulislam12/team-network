@@ -50,6 +50,8 @@ class Plugin {
         wp_register_script( 'elementor-hello-world', plugins_url( '/assets/js/hello-world.js', __FILE__ ), ['jquery'], false, true );
 
         wp_register_style('tn-team-grid-style-1', plugins_url('/assets/css/team-grid-1.css', TN_FILE), [], false, 'all');
+        
+        wp_register_style('tn-team-grid-style-2', plugins_url('/assets/css/team-grid-2.css', TN_FILE), [], false, 'all');
     }
 
     /**

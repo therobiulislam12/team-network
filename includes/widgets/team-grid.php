@@ -86,7 +86,7 @@ class Team_Grid extends Widget_Base {
      * @return array Widget style dependencies.
      */
     public function get_style_depends(): array {
-        return ['tn-team-grid-style-1'];
+        return ['tn-team-grid-style-1', 'tn-team-grid-style-2'];
     }
 
     /**
@@ -119,6 +119,7 @@ class Team_Grid extends Widget_Base {
         $settings = $this->get_settings_for_display();
         
         $selected_department_slug = $settings['tn-team-department-select'];
+        $grid_style = $settings['tn-team-grid-style'];
 
         $total_members = get_posts(array(
             'post_type' => 'teamnetwork',
@@ -144,65 +145,122 @@ class Team_Grid extends Widget_Base {
                             $wordpressUrl = get_post_meta( $member->ID, '_tn_member_wordpress', true );
                             $twitterUrl = get_post_meta( $member->ID, '_tn_member_twitter', true );
                 ?>
-                <div class="tn-team-item">
-                    <div class="tn-team-member tn-left tn-position-top">
-                        <div class="tn-team-member-thumb">
-                            <img src="<?php echo esc_url($thumb[0]) ?>" alt="<?php echo esc_attr($member->post_title); ?>">
-                        </div>
-                        <div class="tn-team-member-content">
-                            <h3 class="tn-team-member-name">
-                                <?php echo esc_html__($member->post_title, 'team-network')?>
-                            </h3>
-                            <span class="tn-team-member-designation"><?php echo esc_html__($jib_title, 'team-network')?> </span>
-                            <div class="tn-team-member-about">
-                                <?php echo esc_html__($member->post_excerpt, 'team-network'); ?>
+                    <?php if('style-1' === $grid_style):  ?>
+                    <div class="tn-team-item">
+                        <div class="tn-team-member tn-left tn-position-top">
+                            <div class="tn-team-member-thumb">
+                                <img src="<?php echo esc_url($thumb[0]) ?>" alt="<?php echo esc_attr($member->post_title); ?>">
                             </div>
-                            <ul class="list-inline tn-team-member-social">
-                                <?php if($facebookUrl) :  ?>
-                                    <li>
-                                        <a href="<?php echo $facebookUrl ?>" target="_blank" class="tn-social-icon">
-                                            <i aria-hidden="true" class="<?php echo esc_attr($settings['tn-member-facebook-icon']['value']) ?>"></i> 
-                                        </a>
-                                    </li>
-                                <?php endif;  ?>
-                                
-                                <?php if($linkedInUrl) :  ?>
-                                    <li>
-                                        <a href="<?php echo $linkedInUrl ?>" target="_blank" class="tn-social-icon">
-                                            <i aria-hidden="true" class="<?php echo esc_attr($settings['tn-member-linkedin-icon']['value']) ?>"></i> 
-                                        </a>
-                                    </li>
-                                <?php endif;  ?>
-                                
-                                <?php if($githubUrl) :  ?>
-                                    <li>
-                                        <a href="<?php echo $githubUrl ?>" target="_blank" class="tn-social-icon">
-                                            <i aria-hidden="true" class="<?php echo esc_attr($settings['tn-member-github-icon']['value']) ?>"></i> 
-                                        </a>
-                                    </li>
-                                <?php endif;  ?>
-                                
-                                <?php if($twitterUrl) :  ?>
-                                    <li>
-                                        <a href="<?php echo $twitterUrl ?>" target="_blank" class="tn-social-icon">
-                                            <i aria-hidden="true" class="<?php echo esc_attr($settings['tn-member-twitter-icon']['value']) ?>"></i> 
-                                        </a>
-                                    </li>
-                                <?php endif;  ?>
-                                
-                                <?php if($wordpressUrl) :  ?>
-                                    <li>
-                                        <a href="<?php echo $wordpressUrl ?>" target="_blank" class="tn-social-icon">
-                                            <i aria-hidden="true" class="<?php echo esc_attr($settings['tn-member-wordpress-icon']['value']) ?>"></i> 
-                                        </a>
-                                    </li>
-                                <?php endif;  ?>
-                            </ul>
+                            <div class="tn-team-member-content">
+                                <h3 class="tn-team-member-name">
+                                    <?php echo esc_html__($member->post_title, 'team-network')?>
+                                </h3>
+                                <span class="tn-team-member-designation"><?php echo esc_html__($jib_title, 'team-network')?> </span>
+                                <div class="tn-team-member-about">
+                                    <?php echo esc_html__($member->post_excerpt, 'team-network'); ?>
+                                </div>
+                                <ul class="list-inline tn-team-member-social">
+                                    <?php if($facebookUrl) :  ?>
+                                        <li>
+                                            <a href="<?php echo $facebookUrl ?>" target="_blank" class="tn-social-icon">
+                                                <i aria-hidden="true" class="<?php echo esc_attr($settings['tn-member-facebook-icon']['value']) ?>"></i> 
+                                            </a>
+                                        </li>
+                                    <?php endif;  ?>
+                                    
+                                    <?php if($linkedInUrl) :  ?>
+                                        <li>
+                                            <a href="<?php echo $linkedInUrl ?>" target="_blank" class="tn-social-icon">
+                                                <i aria-hidden="true" class="<?php echo esc_attr($settings['tn-member-linkedin-icon']['value']) ?>"></i> 
+                                            </a>
+                                        </li>
+                                    <?php endif;  ?>
+                                    
+                                    <?php if($githubUrl) :  ?>
+                                        <li>
+                                            <a href="<?php echo $githubUrl ?>" target="_blank" class="tn-social-icon">
+                                                <i aria-hidden="true" class="<?php echo esc_attr($settings['tn-member-github-icon']['value']) ?>"></i> 
+                                            </a>
+                                        </li>
+                                    <?php endif;  ?>
+                                    
+                                    <?php if($twitterUrl) :  ?>
+                                        <li>
+                                            <a href="<?php echo $twitterUrl ?>" target="_blank" class="tn-social-icon">
+                                                <i aria-hidden="true" class="<?php echo esc_attr($settings['tn-member-twitter-icon']['value']) ?>"></i> 
+                                            </a>
+                                        </li>
+                                    <?php endif;  ?>
+                                    
+                                    <?php if($wordpressUrl) :  ?>
+                                        <li>
+                                            <a href="<?php echo $wordpressUrl ?>" target="_blank" class="tn-social-icon">
+                                                <i aria-hidden="true" class="<?php echo esc_attr($settings['tn-member-wordpress-icon']['value']) ?>"></i> 
+                                            </a>
+                                        </li>
+                                    <?php endif;  ?>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <?php endforeach; endif; ?>
+                    <?php elseif('style-2' === $grid_style): ?>
+                        <div class="tnad-team-item">
+                            <div class="tnad-team-member tnad-center tnad-position-top">
+                            <div class="tnad-team-member-thumb">
+                                <img src="<?php echo esc_url($thumb[0]) ?>" alt="<?php echo esc_attr($member->post_title); ?>">
+                            </div>
+                            <div class="tnad-team-member-content">
+                                <h3 class="tnad-team-member-name"> <?php echo esc_html__($member->post_title, 'team-network')?> </h3>
+                                <span class="tnad-team-member-designation"> <?php echo esc_html__($jib_title, 'team-network')?> </span>
+                                <div class="tnad-team-member-about"> <?php echo esc_html__($member->post_excerpt, 'team-network'); ?> </div>
+                                <ul class="tnad-team-member-social">
+                                <?php if($facebookUrl) :  ?>
+                                        <li>
+                                            <a href="<?php echo $facebookUrl ?>" target="_blank" class="tn-social-icon">
+                                                <i aria-hidden="true" class="<?php echo esc_attr($settings['tn-member-facebook-icon']['value']) ?>"></i> 
+                                            </a>
+                                        </li>
+                                    <?php endif;  ?>
+                                    
+                                    <?php if($linkedInUrl) :  ?>
+                                        <li>
+                                            <a href="<?php echo $linkedInUrl ?>" target="_blank" class="tn-social-icon">
+                                                <i aria-hidden="true" class="<?php echo esc_attr($settings['tn-member-linkedin-icon']['value']) ?>"></i> 
+                                            </a>
+                                        </li>
+                                    <?php endif;  ?>
+                                    
+                                    <?php if($githubUrl) :  ?>
+                                        <li>
+                                            <a href="<?php echo $githubUrl ?>" target="_blank" class="tn-social-icon">
+                                                <i aria-hidden="true" class="<?php echo esc_attr($settings['tn-member-github-icon']['value']) ?>"></i> 
+                                            </a>
+                                        </li>
+                                    <?php endif;  ?>
+                                    
+                                    <?php if($twitterUrl) :  ?>
+                                        <li>
+                                            <a href="<?php echo $twitterUrl ?>" target="_blank" class="tn-social-icon">
+                                                <i aria-hidden="true" class="<?php echo esc_attr($settings['tn-member-twitter-icon']['value']) ?>"></i> 
+                                            </a>
+                                        </li>
+                                    <?php endif;  ?>
+                                    
+                                    <?php if($wordpressUrl) :  ?>
+                                        <li>
+                                            <a href="<?php echo $wordpressUrl ?>" target="_blank" class="tn-social-icon">
+                                                <i aria-hidden="true" class="<?php echo esc_attr($settings['tn-member-wordpress-icon']['value']) ?>"></i> 
+                                            </a>
+                                        </li>
+                                    <?php endif;  ?>
+                                </li>
+                                </ul>
+                            </div>
+                            </div>
+                        </div>
+
+                <?php endif; endforeach; endif; ?>
             </div>
 
 		    <?php
@@ -239,7 +297,7 @@ class Team_Grid extends Widget_Base {
         );
 
         $this->add_control(
-            'team_grid_style',
+            'tn-team-grid-style',
             [
                 'label'     => esc_html__( 'Team Grid Style', 'team-network' ),
                 'type'      => \Elementor\Controls_Manager::SELECT,
