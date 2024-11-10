@@ -301,15 +301,12 @@ class Team_Grid extends Widget_Base {
             [
                 'label'     => esc_html__( 'Team Grid Style', 'team-network' ),
                 'type'      => \Elementor\Controls_Manager::SELECT,
-                'default'   => 'style-1',
                 'options'   => [
                     'style-1' => esc_html__( 'Style 1', 'team-network' ),
                     'style-2' => esc_html__( 'Style 2', 'team-network' ),
                     'style-3' => esc_html__( 'Style 3', 'team-network' ),
                 ],
-                'selectors' => [
-                    '{{WRAPPER}} .your-class' => 'border-style: {{VALUE}};',
-                ],
+                'default'   => 'style-1',
             ]
         );
 
