@@ -65,6 +65,9 @@ final class Team_Network {
      */
     public function __construct() {
 
+        // activation hook
+        register_activation_hook( __FILE__, array( $this, 'tn_register_activation_hook' ) );
+
         // call constant
         $this->define_constant();
 
@@ -73,9 +76,6 @@ final class Team_Network {
 
         // add post type
         add_action( 'init', array( $this, 'tn_init' ) );
-
-        // activation hook
-        register_activation_hook(TN_FILE, array($this, 'tn_register_activation_hook'));
 
     }
 
@@ -97,40 +97,39 @@ final class Team_Network {
         add_filter( 'template_include', array( $this, 'teamnetwork_single_template' ) );
 
         // single teamnetwork style
-        add_action('wp_enqueue_scripts', array($this, 'enqueue_teamnetwork_styles'));
+        add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_teamnetwork_styles' ) );
 
         // check if admin, load class
         if ( is_admin() ) {
             $admin = require_once __DIR__ . '/includes/Admin.php';
             $admin = new Admin();
-        } 
+        }
     }
 
     /**
      * Team network front-end style
-     * 
+     *
      * @return void
      */
     public function enqueue_teamnetwork_styles() {
-        if (is_singular('teamnetwork')) {
+        if ( is_singular( 'teamnetwork' ) ) {
             // Enqueue the CSS file from the plugin
-            wp_enqueue_style('teamnetwork-style', plugin_dir_url(__FILE__) . 'assets/css/single-member.css');
+            wp_enqueue_style( 'teamnetwork-style', plugin_dir_url( __FILE__ ) . 'assets/css/single-member.css' );
         }
     }
 
     /**
      * Single Team Member page
-     * 
+     *
      * @param mixed $template
      * @return mixed
      */
     public function teamnetwork_single_template( $template ) {
         // Check if it's a single post of custom post type 'teamnetwork'
         if ( is_singular( 'teamnetwork' ) ) {
-            // Look for the custom template in the plugin's folder
+
             $plugin_template = plugin_dir_path( __FILE__ ) . 'templates/single-teamnetwork.php';
 
-            // If the template exists, return it
             if ( file_exists( $plugin_template ) ) {
                 return $plugin_template;
             }
@@ -156,11 +155,11 @@ final class Team_Network {
     /**
      * Activation hook for after install plugin
      * flush custom post type
-     * 
+     *
      * @return void
      * @since 1.0.0
      */
-    public function tn_register_activation_hook(){
+    public function tn_register_activation_hook() {
         flush_rewrite_rules();
     }
 
