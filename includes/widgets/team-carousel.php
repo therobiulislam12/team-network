@@ -342,6 +342,39 @@ if ( !empty( $total_members ) ):
                 'condition' => [
                     'tn-team-carousel-navigation' => ['both', 'arrows'],
                 ],
+                'type' => \Elementor\Controls_Manager::ICONS,
+				'fa4compatibility' => 'icon',
+				'skin' => 'inline',
+				'label_block' => false,
+				'skin_settings' => [
+					'inline' => [
+						'none' => [
+							'label' => 'Default',
+							'icon' => 'eicon-chevron-left',
+						],
+						'icon' => [
+							'icon' => 'eicon-star',
+						],
+					],
+				],
+				'recommended' => [
+					'fa-regular' => [
+						'arrow-alt-circle-left',
+						'caret-square-left',
+					],
+					'fa-solid' => [
+						'angle-double-left',
+						'angle-left',
+						'arrow-alt-circle-left',
+						'arrow-circle-left',
+						'arrow-left',
+						'caret-left',
+						'caret-square-left',
+						'chevron-circle-left',
+						'chevron-left',
+						'long-arrow-alt-left',
+					],
+				]
             ]
         );
 
@@ -352,6 +385,39 @@ if ( !empty( $total_members ) ):
                 'condition' => [
                     'tn-team-carousel-navigation' => ['both', 'arrows'],
                 ],
+                'type' => \Elementor\Controls_Manager::ICONS,
+				'fa4compatibility' => 'icon',
+				'skin' => 'inline',
+				'label_block' => false,
+				'skin_settings' => [
+					'inline' => [
+						'none' => [
+							'label' => 'Default',
+							'icon' => 'eicon-chevron-right',
+						],
+						'icon' => [
+							'icon' => 'eicon-star',
+						],
+					],
+				],
+				'recommended' => [
+					'fa-regular' => [
+						'arrow-alt-circle-right',
+						'caret-square-right',
+					],
+					'fa-solid' => [
+						'angle-double-right',
+						'angle-right',
+						'arrow-alt-circle-right',
+						'arrow-circle-right',
+						'arrow-right',
+						'caret-right',
+						'caret-square-right',
+						'chevron-circle-right',
+						'chevron-right',
+						'long-arrow-alt-right',
+					],
+				],
             ]
         );
 
