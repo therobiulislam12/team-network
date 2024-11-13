@@ -54,6 +54,9 @@ class Plugin {
         wp_register_style('tn-team-grid-style-1', plugins_url('/assets/css/team-grid-1.css', TN_FILE), [], false, 'all');
         
         wp_register_style('tn-team-grid-style-2', plugins_url('/assets/css/team-grid-2.css', TN_FILE), [], false, 'all');
+
+        wp_register_style('tn-owl-carousel', plugins_url('/assets/css/owl.carousel.min.css', TN_FILE), [], false, 'all');
+        wp_register_style('tn-team-carousel', plugins_url('/assets/css/team-network-carousel.css', TN_FILE), [], false, 'all');
     }
 
     /**

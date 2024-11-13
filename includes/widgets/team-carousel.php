@@ -86,7 +86,7 @@ class Team_Carousel extends Widget_Base {
      * @return array Widget style dependencies.
      */
     public function get_style_depends() {
-        return ['tn-team-grid-style-1', 'tn-team-grid-style-2'];
+        return ['tn-owl-carousel', 'tn-team-carousel'];
     }
 
     /**
@@ -136,6 +136,14 @@ class Team_Carousel extends Widget_Base {
         $selected_department_slug = $settings['tn-team-department-select'];
         $grid_style = $settings['tn-team-grid-style'];
 
+        $div_class = '';
+
+        if('style-1' === $grid_style){
+            $div_class = 'team-network-carousel';
+        } else {
+            $div_class = 'team-network-team-grid-1-section';
+        }
+
         $total_members = get_posts( array(
             'post_type' => 'teamnetwork',
             'tax_query' => array(
@@ -148,7 +156,7 @@ class Team_Carousel extends Widget_Base {
         ) );
 
         ?>
-            <div class="team-network-team-grid-1-section" id="team-network-carousel">
+            <div class="<?php echo $div_class; ?> owl-carousel owl-theme" id="team-network-carousel">
                 <?php
 if ( !empty( $total_members ) ):
             foreach ( $total_members as $member ):
