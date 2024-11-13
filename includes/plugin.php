@@ -47,7 +47,9 @@ class Plugin {
      * @access public
      */
     public function widget_scripts() {
-        wp_register_script( 'elementor-hello-world', plugins_url( '/assets/js/hello-world.js', __FILE__ ), ['jquery'], false, true );
+        wp_register_script( 'tn-team-carousel', plugins_url( '/assets/js/team-carousel.js', TN_FILE ), ['jquery'], false, true );
+
+        wp_register_script( 'tn-team-owl-carousel', plugins_url( '/assets/js/owl.carousel.min.js', TN_FILE ), ['jquery'], false, true );
 
         wp_register_style('tn-team-grid-style-1', plugins_url('/assets/css/team-grid-1.css', TN_FILE), [], false, 'all');
         
